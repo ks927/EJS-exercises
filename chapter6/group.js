@@ -4,17 +4,15 @@ class Group {
     }
   
     add(val) {
-        if(!this.group.includes(val)) {
+        if(!this.has(val)) {
             this.group.push(val);
         }
     }
   
     delete(val) {
-        let newGroup = this.group.filter(item => {
+        this.group = this.group.filter(item => {
             return item !== val
         });
-
-        this.group = newGroup;
     }
   
     has(val) {
@@ -30,13 +28,16 @@ class Group {
 
         return newGroup;
     }
-  }
+
+}
   
-  let foo = Group.from([10,20]);
-  // foo.add(10);
-  // foo.add(20);
-  // foo.has(30);
-  foo.delete('10');
+
+
+let foo = Group.from([10,20]);
+// foo.add(10);
+// foo.add(20);
+// foo.has(30);
+foo.delete('10');
 //   foo.add(10);
-  foo.has(10) // true because deep val check
-  // foo
+foo.has(10) // true because deep val check
+// foo
